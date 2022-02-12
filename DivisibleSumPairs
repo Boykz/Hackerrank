@@ -1,0 +1,16 @@
+https://www.hackerrank.com/challenges/three-month-preparation-kit-divisible-sum-pairs/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=three-month-preparation-kit&playlist_slugs%5B%5D=three-month-week-one
+
+Solution with O(n^2)
+    public static int divisibleSumPairs(int n, int k, List<int> ar)
+    {
+        int s = 0;
+        for(int i = 0; i<n; i++){
+            for(int j =i+1; j<n;j++){
+                //Console.WriteLine("{0} {1} {2} {3}",ar[i],ar[j],ar[i]%k,ar[j]%k);
+                if(i<j &&  (ar[i] + ar[j])%k == 0){
+                  s++; // Console.WriteLine("{0} {1}",ar[i],ar[j]);
+                }
+            }
+        }
+        return s;
+    }
