@@ -14,3 +14,27 @@ Solution with O(n^2)
         }
         return s;
     }
+
+Solution with O(nlogn) time complexity
+
+public static int divisibleSumPairs(int n, int k, List<int> ar)
+    {
+        int sum = 0;
+        Dictionary<int,int> dict = new Dictionary<int,int>();
+        for(int i = n-1; i >= 0; i--){
+            int akk = ar[i]%k; 
+             
+             if(dict.ContainsKey(akk)){
+                sum+=dict[akk];
+             //   Console.WriteLine(" added sum {0} ",dict[akk]);
+            }
+            if(akk == 0) akk = k;
+            if(dict.ContainsKey(k-akk)){
+                dict[k-akk]++;
+            }else{
+                dict.Add(k-akk,1);
+            }
+        }
+         
+        return sum;
+    }
